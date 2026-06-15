@@ -6,46 +6,50 @@
 <title>LaxeEdit</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#07070f;color:white;overflow-x:hidden}
-body::before{
-content:"";position:fixed;inset:0;
-background:radial-gradient(circle at 20% 20%,#8a2be255,transparent 30%),
-radial-gradient(circle at 80% 30%,#00bfff33,transparent 30%),
-linear-gradient(135deg,#050509,#160024,#050509);
-z-index:-1;animation:bg 8s infinite alternate;
-}
-@keyframes bg{from{filter:hue-rotate(0)}to{filter:hue-rotate(25deg)}}
-header{position:fixed;top:0;width:100%;padding:22px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(12px);z-index:10}
-.logo{font-size:28px;font-weight:bold;color:#c084fc;text-shadow:0 0 20px #8a2be2}
-nav a{color:white;text-decoration:none;margin-left:18px;font-weight:bold}
-.social a{margin-left:12px;color:white;text-decoration:none;padding:10px 14px;border-radius:20px;background:rgba(255,255,255,.1);transition:.3s}
+body{font-family:Arial,sans-serif;background:#06000d;color:white;overflow-x:hidden}
+header{position:fixed;top:0;width:100%;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(15px);z-index:50}
+.logo{font-size:30px;font-weight:bold;color:#b45cff;text-shadow:0 0 20px #8a2be2}
+nav a,.social a{color:white;text-decoration:none;margin-left:18px;font-weight:bold}
+.social a{padding:9px 14px;border-radius:20px;background:rgba(255,255,255,.1)}
 .social a:hover{background:#8a2be2;box-shadow:0 0 20px #8a2be2}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 8% 60px}
-.box{max-width:900px;padding:50px;border-radius:30px;background:rgba(255,255,255,.08);box-shadow:0 0 50px #8a2be288;animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-h1{font-size:60px;color:#d8b4fe;margin-bottom:20px}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,#7b2cff55,transparent 30%),radial-gradient(circle at 80% 40%,#00c8ff33,transparent 30%),linear-gradient(135deg,#050008,#17002b,#050008);z-index:-2;animation:hue 8s infinite alternate}
+@keyframes hue{to{filter:hue-rotate(35deg)}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:130px 8% 70px}
+.box{max-width:950px;padding:55px;border-radius:32px;background:rgba(255,255,255,.08);box-shadow:0 0 60px #8a2be288;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+h1{font-size:65px;color:#d8b4fe;margin-bottom:20px}
 p{font-size:19px;color:#ddd;line-height:1.7}
-.btn{display:inline-block;margin-top:30px;padding:15px 35px;background:#8a2be2;color:white;text-decoration:none;border-radius:30px;font-weight:bold;box-shadow:0 0 25px #8a2be2}
+.btn{display:inline-block;margin-top:25px;padding:14px 30px;background:#8a2be2;color:white;border:none;border-radius:30px;font-weight:bold;cursor:pointer;text-decoration:none;box-shadow:0 0 25px #8a2be2}
 section{padding:90px 8%}
-.title{font-size:36px;color:#c084fc;margin-bottom:25px}
-.card{background:rgba(255,255,255,.08);padding:30px;border-radius:22px;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 25px rgba(138,43,226,.25)}
+.title{font-size:38px;color:#c084fc;margin-bottom:25px}
+.card{background:rgba(255,255,255,.08);padding:30px;border-radius:22px;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 25px rgba(138,43,226,.25);margin-bottom:20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+input,textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:12px;background:#12001f;color:white}
+textarea{min-height:100px;resize:none}
+.comment{background:rgba(0,0,0,.35);padding:15px;border-radius:14px;margin-top:12px;border-left:4px solid #8a2be2}
+.login-status{margin-top:15px;color:#c084fc;font-weight:bold}
 footer{text-align:center;padding:30px;background:#030305;color:#aaa}
-@media(max-width:700px){h1{font-size:42px}header{flex-direction:column;gap:15px}nav a{margin:8px}}
+.snow{position:fixed;top:-40px;color:white;pointer-events:none;z-index:9999;opacity:.7}
+@keyframes snowFall{to{transform:translateY(110vh)}}
+@media(max-width:800px){header{flex-direction:column;gap:12px}h1{font-size:42px}nav a,.social a{margin:6px;font-size:14px}}
 </style>
 </head>
 <body>
+
+<div class="bg"></div>
 
 <header>
   <div class="logo">LaxeEdit</div>
   <nav>
     <a href="#home">Ana Sayfa</a>
     <a href="#about">Hakkımda</a>
-    <a href="#projeler">Projeler</a>
+    <a href="#projects">Projeler</a>
+    <a href="#login">Üye Girişi</a>
+    <a href="#comments">Yorumlar</a>
   </nav>
   <div class="social">
     <a href="https://www.instagram.com/laxeedit/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@laxeedit" target="_blank">TikTok</a>
+    <a href="https://www.tiktok.com/@laxeedit0" target="_blank">TikTok</a>
     <a href="mailto:laxeedit@gmail.com">Mail</a>
   </div>
 </header>
@@ -54,7 +58,7 @@ footer{text-align:center;padding:30px;background:#030305;color:#aaa}
   <div class="box">
     <h1>LaxeEdit</h1>
     <p>Yapay zeka, edit içerikleri, oyun geliştirme ve yaratıcı dijital projeler üzerine içerikler üreten kişisel blog siteme hoş geldin.</p>
-    <a class="btn" href="#about">Hakkımda</a>
+    <a class="btn" href="#about">Siteyi Keşfet</a>
   </div>
 </div>
 
@@ -62,36 +66,110 @@ footer{text-align:center;padding:30px;background:#030305;color:#aaa}
   <h2 class="title">Hakkımda</h2>
   <div class="card">
     <p>
-      Merhaba, ben LaxeEdit. Dijital dünyada içerik üretmeyi, yeni fikirler denemeyi ve yapay zeka araçlarıyla yaratıcı projeler geliştirmeyi seviyorum.
-      Bu sitede yapay zeka promptları, sosyal medya içerikleri, oyun geliştirme fikirleri, edit projeleri ve kişisel çalışmalarımı paylaşacağım.
-      Amacım hem kendi projelerimi düzenli şekilde sergilemek hem de benim gibi içerik üretmek isteyen kişilere ilham verecek bir alan oluşturmak.
-      Özellikle TikTok, Instagram Reels ve YouTube Shorts tarzı kısa video içerikleri, karanlık/mor temalı tasarımlar, oyun projeleri ve yaratıcı yapay zeka çalışmalarıyla ilgileniyorum.
-      Burada zamanla yeni blog yazıları, proje tanıtımları, fikirler ve sosyal medya içeriklerim yer alacak.
+      Merhaba, ben LaxeEdit. Dijital içerik üretimi, yapay zeka araçları, oyun geliştirme, sosyal medya editleri ve yaratıcı projelerle ilgileniyorum.
+      Bu siteyi kendi projelerimi, fikirlerimi ve üretim sürecimi paylaşmak için oluşturdum.
+      Özellikle TikTok, Instagram Reels ve YouTube Shorts gibi kısa video platformlarına uygun dikkat çekici içerikler üretmeyi seviyorum.
+      Karanlık, mor neon, sinematik ve modern tasarımlar benim tarzımı yansıtıyor.
+      Burada zamanla blog yazılarımı, oyun projelerimi, yapay zeka promptlarımı, edit fikirlerimi ve dijital çalışmalarımı paylaşacağım.
     </p>
   </div>
 </section>
 
-<section id="projeler">
+<section id="projects">
   <h2 class="title">Projeler</h2>
   <div class="cards">
-    <div class="card">
-      <h3>Laxe Dungeon</h3>
-      <p>Karanlık dungeon temalı oyun projem.</p>
-    </div>
-    <div class="card">
-      <h3>Edit İçerikleri</h3>
-      <p>TikTok, Instagram ve YouTube için yaratıcı edit fikirleri.</p>
-    </div>
-    <div class="card">
-      <h3>Yapay Zeka</h3>
-      <p>AI promptları, görsel üretim ve içerik fikirleri.</p>
-    </div>
+    <div class="card"><h3>Laxe Dungeon</h3><p>Karanlık dungeon temalı oyun projem.</p></div>
+    <div class="card"><h3>Edit İçerikleri</h3><p>TikTok, Instagram ve YouTube için yaratıcı edit fikirleri.</p></div>
+    <div class="card"><h3>Yapay Zeka</h3><p>AI promptları, görsel üretim ve içerik fikirleri.</p></div>
+  </div>
+</section>
+
+<section id="login">
+  <h2 class="title">Üye Girişi</h2>
+  <div class="card">
+    <p>Demo giriş bilgileri: <b>laxeedit</b> / <b>123456</b></p>
+    <input id="username" placeholder="Kullanıcı adı">
+    <input id="password" type="password" placeholder="Şifre">
+    <button class="btn" onclick="login()">Giriş Yap</button>
+    <button class="btn" onclick="logout()">Çıkış Yap</button>
+    <div class="login-status" id="loginStatus">Henüz giriş yapılmadı.</div>
+  </div>
+</section>
+
+<section id="comments">
+  <h2 class="title">Yorumlar</h2>
+  <div class="card">
+    <textarea id="commentText" placeholder="Yorum yazmak için giriş yapmalısın..."></textarea>
+    <button class="btn" onclick="addComment()">Yorum Yap</button>
+    <div id="commentList"></div>
   </div>
 </section>
 
 <footer>
   © 2026 LaxeEdit | Instagram: @laxeedit
 </footer>
+
+<script>
+let loggedUser = localStorage.getItem("loggedUser");
+
+function updateLoginStatus(){
+  document.getElementById("loginStatus").innerText = loggedUser ? "Giriş yapıldı: " + loggedUser : "Henüz giriş yapılmadı.";
+}
+
+function login(){
+  let u=document.getElementById("username").value;
+  let p=document.getElementById("password").value;
+  if(u==="laxeedit" && p==="123456"){
+    loggedUser=u;
+    localStorage.setItem("loggedUser",u);
+    updateLoginStatus();
+    alert("Giriş başarılı!");
+  }else{
+    alert("Kullanıcı adı veya şifre yanlış!");
+  }
+}
+
+function logout(){
+  loggedUser=null;
+  localStorage.removeItem("loggedUser");
+  updateLoginStatus();
+}
+
+function addComment(){
+  if(!loggedUser){alert("Yorum yapmak için giriş yapmalısın.");return}
+  let text=document.getElementById("commentText").value.trim();
+  if(!text){alert("Yorum boş olamaz.");return}
+  let comments=JSON.parse(localStorage.getItem("comments")||"[]");
+  comments.unshift({user:loggedUser,text:text,date:new Date().toLocaleString("tr-TR")});
+  localStorage.setItem("comments",JSON.stringify(comments));
+  document.getElementById("commentText").value="";
+  showComments();
+}
+
+function showComments(){
+  let comments=JSON.parse(localStorage.getItem("comments")||"[]");
+  document.getElementById("commentList").innerHTML=comments.map(c=>`
+    <div class="comment">
+      <b>${c.user}</b> <small>${c.date}</small>
+      <p>${c.text}</p>
+    </div>
+  `).join("");
+}
+
+for(let i=0;i<70;i++){
+  let s=document.createElement("div");
+  s.className="snow";
+  s.innerHTML="❄";
+  s.style.left=Math.random()*100+"vw";
+  s.style.fontSize=(Math.random()*12+8)+"px";
+  s.style.animation=`snowFall ${Math.random()*12+10}s linear infinite`;
+  s.style.animationDelay=Math.random()*10+"s";
+  document.body.appendChild(s);
+}
+
+updateLoginStatus();
+showComments();
+</script>
 
 </body>
 </html>
