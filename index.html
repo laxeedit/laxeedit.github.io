@@ -3,22 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaxeEdit Blog</title>
+<title>LaxeEdit</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#080812,#160024,#050505);color:white}
-header{padding:25px 8%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:28px;font-weight:bold;color:#b266ff}
-nav a{color:white;text-decoration:none;margin-left:20px}
-.hero{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}
-.box{max-width:850px;padding:45px;border-radius:25px;background:rgba(255,255,255,.08);box-shadow:0 0 40px rgba(138,43,226,.5)}
-h1{font-size:55px;margin-bottom:20px;color:#c084fc}
-p{font-size:20px;color:#ddd;line-height:1.6}
-.btn{display:inline-block;margin-top:30px;padding:15px 30px;background:#8a2be2;color:white;text-decoration:none;border-radius:30px;font-weight:bold}
-section{padding:60px 8%}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:rgba(255,255,255,.08);padding:25px;border-radius:18px;border:1px solid rgba(255,255,255,.1)}
-footer{text-align:center;padding:25px;background:#050505;color:#aaa}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#07070f;color:white;overflow-x:hidden}
+body::before{
+content:"";position:fixed;inset:0;
+background:radial-gradient(circle at 20% 20%,#8a2be255,transparent 30%),
+radial-gradient(circle at 80% 30%,#00bfff33,transparent 30%),
+linear-gradient(135deg,#050509,#160024,#050509);
+z-index:-1;animation:bg 8s infinite alternate;
+}
+@keyframes bg{from{filter:hue-rotate(0)}to{filter:hue-rotate(25deg)}}
+header{position:fixed;top:0;width:100%;padding:22px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.45);backdrop-filter:blur(12px);z-index:10}
+.logo{font-size:28px;font-weight:bold;color:#c084fc;text-shadow:0 0 20px #8a2be2}
+nav a{color:white;text-decoration:none;margin-left:18px;font-weight:bold}
+.social a{margin-left:12px;color:white;text-decoration:none;padding:10px 14px;border-radius:20px;background:rgba(255,255,255,.1);transition:.3s}
+.social a:hover{background:#8a2be2;box-shadow:0 0 20px #8a2be2}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 8% 60px}
+.box{max-width:900px;padding:50px;border-radius:30px;background:rgba(255,255,255,.08);box-shadow:0 0 50px #8a2be288;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+h1{font-size:60px;color:#d8b4fe;margin-bottom:20px}
+p{font-size:19px;color:#ddd;line-height:1.7}
+.btn{display:inline-block;margin-top:30px;padding:15px 35px;background:#8a2be2;color:white;text-decoration:none;border-radius:30px;font-weight:bold;box-shadow:0 0 25px #8a2be2}
+section{padding:90px 8%}
+.title{font-size:36px;color:#c084fc;margin-bottom:25px}
+.card{background:rgba(255,255,255,.08);padding:30px;border-radius:22px;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 25px rgba(138,43,226,.25)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+footer{text-align:center;padding:30px;background:#030305;color:#aaa}
+@media(max-width:700px){h1{font-size:42px}header{flex-direction:column;gap:15px}nav a{margin:8px}}
 </style>
 </head>
 <body>
@@ -26,38 +39,59 @@ footer{text-align:center;padding:25px;background:#050505;color:#aaa}
 <header>
   <div class="logo">LaxeEdit</div>
   <nav>
-    <a href="#">Ana Sayfa</a>
-    <a href="#blog">Blog</a>
+    <a href="#home">Ana Sayfa</a>
+    <a href="#about">Hakkımda</a>
     <a href="#projeler">Projeler</a>
   </nav>
+  <div class="social">
+    <a href="https://www.instagram.com/laxeedit/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@laxeedit" target="_blank">TikTok</a>
+    <a href="mailto:laxeedit@gmail.com">Mail</a>
+  </div>
 </header>
 
-<div class="hero">
+<div class="hero" id="home">
   <div class="box">
-    <h1>LaxeEdit Blog</h1>
-    <p>Yapay zeka, oyun geliştirme, edit içerikleri ve yaratıcı projelerimi paylaştığım kişisel blog siteme hoş geldin.</p>
-    <a class="btn" href="#blog">Blogu Gör</a>
+    <h1>LaxeEdit</h1>
+    <p>Yapay zeka, edit içerikleri, oyun geliştirme ve yaratıcı dijital projeler üzerine içerikler üreten kişisel blog siteme hoş geldin.</p>
+    <a class="btn" href="#about">Hakkımda</a>
   </div>
 </div>
 
-<section id="blog">
-  <h2>Son Yazılar</h2><br>
-  <div class="cards">
-    <div class="card"><h3>İlk Blog Yazım</h3><p>Bu sitede projelerimi ve fikirlerimi paylaşacağım.</p></div>
-    <div class="card"><h3>Yapay Zeka</h3><p>AI araçları, promptlar ve içerik üretimi hakkında yazılar.</p></div>
-    <div class="card"><h3>Oyun Projeleri</h3><p>Unity, Godot ve oyun fikirlerimi burada paylaşacağım.</p></div>
+<section id="about">
+  <h2 class="title">Hakkımda</h2>
+  <div class="card">
+    <p>
+      Merhaba, ben LaxeEdit. Dijital dünyada içerik üretmeyi, yeni fikirler denemeyi ve yapay zeka araçlarıyla yaratıcı projeler geliştirmeyi seviyorum.
+      Bu sitede yapay zeka promptları, sosyal medya içerikleri, oyun geliştirme fikirleri, edit projeleri ve kişisel çalışmalarımı paylaşacağım.
+      Amacım hem kendi projelerimi düzenli şekilde sergilemek hem de benim gibi içerik üretmek isteyen kişilere ilham verecek bir alan oluşturmak.
+      Özellikle TikTok, Instagram Reels ve YouTube Shorts tarzı kısa video içerikleri, karanlık/mor temalı tasarımlar, oyun projeleri ve yaratıcı yapay zeka çalışmalarıyla ilgileniyorum.
+      Burada zamanla yeni blog yazıları, proje tanıtımları, fikirler ve sosyal medya içeriklerim yer alacak.
+    </p>
   </div>
 </section>
 
 <section id="projeler">
-  <h2>Projeler</h2><br>
+  <h2 class="title">Projeler</h2>
   <div class="cards">
-    <div class="card"><h3>Laxe Dungeon</h3><p>Karanlık dungeon temalı oyun projem.</p></div>
-    <div class="card"><h3>Edit İçerikleri</h3><p>TikTok ve YouTube için yaratıcı edit fikirleri.</p></div>
+    <div class="card">
+      <h3>Laxe Dungeon</h3>
+      <p>Karanlık dungeon temalı oyun projem.</p>
+    </div>
+    <div class="card">
+      <h3>Edit İçerikleri</h3>
+      <p>TikTok, Instagram ve YouTube için yaratıcı edit fikirleri.</p>
+    </div>
+    <div class="card">
+      <h3>Yapay Zeka</h3>
+      <p>AI promptları, görsel üretim ve içerik fikirleri.</p>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 LaxeEdit | Kişisel Blog</footer>
+<footer>
+  © 2026 LaxeEdit | Instagram: @laxeedit
+</footer>
 
 </body>
 </html>
